@@ -1,0 +1,9 @@
+version: '1'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./regression.joblib:/app/regression.joblib
