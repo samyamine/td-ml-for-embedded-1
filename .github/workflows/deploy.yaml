@@ -35,6 +35,6 @@ jobs:
               mkdir /home/ubuntu/samy.amine
             fi
             docker pull ${{ secrets.DOCKER_USERNAME }}/td-ml-for-embedded-1:latest
-            docker stop td-ml-for-embedded-1 || true
+            docker rm /td-ml-for-embedded-1
             docker run -d -p 8067:8067 --name td-ml-for-embedded-1 ${{ secrets.DOCKER_USERNAME }}/td-ml-for-embedded-1:latest
           EOF
