@@ -37,14 +37,13 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/td-ml-for-embedded-1:latest
             docker run -d -p 8067:8067 --name td-ml-for-embedded-1 ${{ secrets.DOCKER_USERNAME }}/td-ml-for-embedded-1:latest
           EOF
-      - name: SSH to VM
-        uses: appleboy/ssh-action@v0.1.3
-        with:
-          host: ${{ secrets.VM_HOST }}
-          username: ${{ secrets.VM_USER }}
-          key: ${{ secrets.VM_SSH_KEY }}
-          script: |
-            ssh 
-            docker pull samyamine/td-ml-for-embedded-1:latest
-            docker stop <container_name> || true
-            docker run -d -p 80:80 --name <container_name> samyamine/td-ml-for-embedded-1:latest
+      # - name: SSH to VM
+      #   uses: appleboy/ssh-action@v0.1.3
+      #   with:
+      #     host: ${{ secrets.VM_HOST }}
+      #     username: ${{ secrets.VM_USER }}
+      #     key: ${{ secrets.VM_SSH_KEY }}
+      #     script: |
+      #       ssh 
+      #       docker pull samyamine/td-ml-for-embedded-1:latest
+      #       docker run -d -p 80:80 --name <container_name> samyamine/td-ml-for-embedded-1:latest
